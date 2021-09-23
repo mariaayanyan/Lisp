@@ -1,6 +1,11 @@
-; развернуть список
-(defun reverseList(Li)
-    (if (null Li) Li (cons (car Li) (reverseList (cdr Li) ) ) )
+; добавить атом в конец списка
+(defun concatAtom(Li A)
+    (if (null Li) (cons A Nil) (cons (car Li) (concatAtom (cdr Li) A) ) )
 )
 
-(print (reverse '(1 2 3 4 5 6) ) )
+; развернуть список
+(defun reverseList(Li)
+    (if (null Li) Li (concatAtom (reverseList (cdr Li) ) (car Li) ) )
+)
+
+(print (reverseList '(1 2 3 4 5 6) ) )
