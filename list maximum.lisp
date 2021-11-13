@@ -1,6 +1,9 @@
 ; найти максимум списка
-(defun listMax(Li)
-    (if (null (cdr Li) ) (car Li) (max (car Li) (listMax (cdr Li) ) ) )
-)
 
-(print (listMax '(1 4 1 2 7 6) ) )
+(defun ListMax(Li)
+    (if (null Li) 0
+        (if (Listp (car Li)) (max (ListMax (car Li)) (ListMax (cdr Li)) ) 
+            (max (car Li) (ListMax (cdr Li)) ) )
+     ))
+
+(print (ListMax '((1 4 2) (5 (6 7)))) )
